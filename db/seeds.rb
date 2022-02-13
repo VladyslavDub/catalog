@@ -1,6 +1,6 @@
 require "open-uri"
 if Rails.env.development?
-  AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
+  #AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
 
   pp "start seed category"
   6.times do
