@@ -13,13 +13,16 @@
     </div>
     <div class="col-12 col-md-6 col-lg-8">
       <h1><%=@product.name%></h1>
-      <div class="">
+      <div class="mb-3">
         <span>$<%=@product.price%></span>
         <br />
         <span><%=@product.available ? "В наявності" : "Немає в наявності"%></span>
+        <br />
+          <button type="button" name="button" class="order_by_click btn btn-success" data-bs-toggle="modal" data-bs-target="#orderByClickModal">Замовити в один клік</button>
+        <%=render "orders/form"%>
       </div>
       <div class="">
-        Maker:  <span> <%= @product.maker.name%></span>
+        Maker:  <span> <%=link_to @product.maker.name, maker_path(@product.maker)%></span>
       </div>
     </div>
     <div class="col-12 mt-4">

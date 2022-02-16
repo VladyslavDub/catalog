@@ -1,23 +1,23 @@
 require "open-uri"
 if Rails.env.development?
-  #AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
+  AdminUser.first_or_create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
 
   pp "start seed category"
-  6.times do
-    Category.create!(name: Faker::Computer.type)
+  12.times do
+    Category.create!(name: Faker::ElectricalComponents.unique.electromechanical)
   end
   pp "#{Category.count} categories seeded"
 
   pp "start seed maker"
-  4.times do
-    Maker.create!(name: Faker::Device.manufacturer)
+  6.times do
+    Maker.create!(name: Faker::Device.unique.manufacturer)
   end
   pp "#{Maker.count} makers seeded"
 
 
   20.times do
     product = Product.create(
-      name: Faker::Device.model_name,
+      name: Faker::Device.unique.model_name,
       category: Category.all.sample,
       maker: Maker.all.sample,
       price: rand(1000...10000000),

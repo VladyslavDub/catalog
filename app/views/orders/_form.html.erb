@@ -1,0 +1,20 @@
+<div class="modal fade" id="orderByClickModal" tabindex="-1" aria-labelledby="orderByClickModalLable" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="orderByClickModalLable">Залиште контакти і наш менеджер з вами зв'яжеться</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <%= form_with model: @order_by_click, url: orders_path, method: :post do |f|%>
+      <div class="modal-body">
+          <%=f.label :phone%>
+          <%=f.telephone_field :phone%>
+          <%=f.hidden_field :product_id%>
+      </div>
+      <div class="modal-footer">
+        <%=f.submit "Замовити", class:"btn btn-primary"%>
+      </div>
+      <%end%>
+    </div>
+  </div>
+</div>
